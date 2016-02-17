@@ -1,3 +1,6 @@
+# -*- coding: cp936 -*-
+# 执行logcat以及远程的android_server，并打开监听端口供IDA attach到进程进行调试
+
 import os
 import time
 
