@@ -1,3 +1,5 @@
+rem 代码跑在64位系统下的代码中需要先关闭重定向，否则重启explorer打开的是库文件夹
+
 rem 关闭Windows外壳程序explorer
 
 taskkill /f /im explorer.exe
