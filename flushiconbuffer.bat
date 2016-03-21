@@ -2,7 +2,7 @@ rem 代码跑在64位系统下的代码中需要先关闭重定向，否则重启explorer打开的是库文件夹
 
 rem 关闭Windows外壳程序explorer
 
-taskkill /f /im explorer.exe
+taskkill /f /im explorer.exe
 
 rem 清理系统图标缓存数据库
 
@@ -22,9 +22,7 @@ del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_sr.db"
 
 rem 清理 系统托盘记忆的图标
 
-echo y|reg delete "HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v IconStreams
-echo y|reg delete "HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v PastIconsStream
-
 rem 重启Windows外壳程序explorer
 
-start explorer
+
+start explorer
