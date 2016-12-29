@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # coding: utf-8
-# 本模块利用递归调用的方法打印出给定的目录及子目录下，文件名中包含指定关键字的文件路径
 
 import os
 
@@ -19,7 +18,7 @@ def searchfile(directory, key):
                 searchfile(filepath, key)
                 continue
             else:
-                if line.find(key)!=-1:
+                if line.upper().find(key.upper())!=-1:
                     filenum = filenum + 1            
                     print filepath
     except Exception , e:
@@ -30,10 +29,22 @@ def searchfile(directory, key):
 
 keystr = raw_input('input the key words of file name: ')
 
-currentdir = os.getcwd()
+#currentdir = os.getcwd()
 
-print 'current directory is',currentdir,',key string is',keystr
+systemdri = os.getenv("systemdrive")
 
-searchfile(currentdir, keystr)
+flag = ord(systemdri[0])
+
+currentdir = '%c%s' % (chr(flag), ':\\')
+
+print 'key string is:',keystr
+print 'start to search...'
+
+while flag <= 132:
+    if not os.path.exists(currentdir):
+        break
+    searchfile(currentdir, keystr)
+    flag = flag + 1
+    currentdir = '%c%s' % (chr(flag), ':\\')
 
 os.system('pause')
